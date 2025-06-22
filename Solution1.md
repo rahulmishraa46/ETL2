@@ -173,7 +173,7 @@ print(top_correlations)
 ```
 
 
-
+```
 # c. Time patterns
 hourly_transactions = valid_df.groupby('TransactionHour').size().reset_index(name='Count')
 fig = px.line(
