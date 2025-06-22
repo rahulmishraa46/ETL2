@@ -172,28 +172,7 @@ print("\nTop Fraud Correlations:")
 print(top_correlations)
 ```
 
-```python
-# ======================
-# 3. VISUALIZATION TASKS
-# ======================
 
-# a. Transaction distribution
-plt.figure(figsize=(10, 6))
-sns.histplot(valid_df[valid_df['Amount'] < 500]['Amount'], bins=50, kde=True)
-plt.title('Transaction Amount Distribution (Perfect Validated)')
-plt.xlabel('Amount ($)')
-plt.ylabel('Frequency')
-plt.show()
-
-# b. Fraud ratio
-fig = px.pie(
-    names=['Legitimate', 'Fraudulent'],
-    values=[1-fraud_percentage/100, fraud_percentage/100],
-    title='Fraud Ratio (Perfect Validated)',
-    hole=0.4
-)
-fig.update_traces(textinfo='percent+label')
-fig.show()
 
 # c. Time patterns
 hourly_transactions = valid_df.groupby('TransactionHour').size().reset_index(name='Count')
